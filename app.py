@@ -118,10 +118,6 @@ def start_app():
                 <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #333;">
                     Wan2.2-Animate: Unified Character Animation and Replacement with Holistic Replication
                 </h1>
-                
-                <h3 style="font-size: 1.5rem; font-weight: normal; margin-bottom: 1.5rem; color: #666;">
-                    A unified model for character animation and video character replacement
-                </h3>
 
                 <div style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #555;">
                     Tongyi Lab, Alibaba

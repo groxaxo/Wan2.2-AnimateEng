@@ -37,8 +37,11 @@ After successful installation, access the local address: http://127.0.0.1:7860/
 For reduced resource usage, quantized versions of the model are available:
 
 - **HuggingFace Model Repository**: [Wan-AI/Wan2.2-Animate-14B](https://huggingface.co/Wan-AI/Wan2.2-Animate-14B)
-- **Quantized variants**: Check HuggingFace for GGUF and other quantized formats for lower VRAM usage
-- **Recommended for local deployment**: Use quantized models (4-bit or 8-bit) if running on consumer hardware
+- **Quantized variants**: Look for community-created quantized versions on HuggingFace (search for "Wan2.2-Animate GGUF" or "Wan2.2-Animate quantized")
+- **Recommended for local deployment**: 
+  - 4-bit or 8-bit quantization recommended for GPUs with 8-16GB VRAM
+  - GGUF format for CPU inference or lower VRAM usage
+  - Full precision model requires 24GB+ VRAM
 
 **Note**: This web interface uses the DashScope cloud API. For local inference with quantization, refer to the [official GitHub repository](https://github.com/Wan-Video/Wan2.2) for inference code.
 
