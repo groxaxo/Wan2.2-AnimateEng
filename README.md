@@ -38,10 +38,12 @@ For reduced resource usage, quantized versions of the model are available:
 
 - **HuggingFace Model Repository**: [Wan-AI/Wan2.2-Animate-14B](https://huggingface.co/Wan-AI/Wan2.2-Animate-14B)
 - **Quantized variants**: Look for community-created quantized versions on HuggingFace (search for "Wan2.2-Animate GGUF" or "Wan2.2-Animate quantized")
+  - ⚠️ **Note**: Verify model authenticity and test performance before production use
 - **Recommended for local deployment**: 
-  - 4-bit or 8-bit quantization recommended for GPUs with 8-16GB VRAM
-  - GGUF format for CPU inference or lower VRAM usage
-  - Full precision model requires 24GB+ VRAM
+  - 4-bit or 8-bit quantization: Recommended for GPUs with 8-16GB VRAM (may have slight quality reduction)
+  - GGUF format: For CPU inference or lower VRAM usage
+  - Full precision: Requires 24GB+ VRAM (best quality)
+  - Actual VRAM usage varies with batch size and resolution settings
 
 **Note**: This web interface uses the DashScope cloud API. For local inference with quantization, refer to the [official GitHub repository](https://github.com/Wan-Video/Wan2.2) for inference code.
 
