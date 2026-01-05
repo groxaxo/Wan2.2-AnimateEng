@@ -99,7 +99,7 @@ class WanAnimateApp:
 
 def start_app():
     import argparse
-    parser = argparse.ArgumentParser(description="Wan2.2-Animate 视频生成工具")
+    parser = argparse.ArgumentParser(description="Wan2.2-Animate Video Generation Tool")
     args = parser.parse_args()
     
     url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/image2video/video-synthesis/"
@@ -109,7 +109,7 @@ def start_app():
     # get_url = f"https://poc-dashscope.aliyuncs.com/api/v1/tasks"
     app = WanAnimateApp(url=url, get_url=get_url)
 
-    with gr.Blocks(title="Wan2.2-Animate 视频生成") as demo:
+    with gr.Blocks(title="Wan2.2-Animate Video Generation") as demo:
         gr.HTML("""
 
             
@@ -118,26 +118,22 @@ def start_app():
                 <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #333;">
                     Wan2.2-Animate: Unified Character Animation and Replacement with Holistic Replication
                 </h1>
-                
-                <h3 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #333;">
-                    Wan2.2-Animate: 统一的角色动画和视频人物替换模型
-                </h3>
 
                 <div style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #555;">
                     Tongyi Lab, Alibaba
                 </div>
 
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                    <!-- 第一行按钮 -->
+                    <!-- First row of buttons -->
                     <a href="https://arxiv.org/abs/2509.14055" target="_blank"
-                    style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background-color: #f0f0f0; /* 浅灰色背景 */ color: #333; /* 深色文字 */ text-decoration: none; border-radius: 9999px; font-weight: 500; transition: background-color 0.3s;">
-                        <span style="margin-right: 0.5rem;">📄</span> <!-- 使用文档图标 -->
+                    style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background-color: #f0f0f0; /* Light gray background */ color: #333; /* Dark text */ text-decoration: none; border-radius: 9999px; font-weight: 500; transition: background-color 0.3s;">
+                        <span style="margin-right: 0.5rem;">📄</span> <!-- Document icon -->
                         <span>Paper</span>
                     </a>
 
                     <a href="https://github.com/Wan-Video/Wan2.2" target="_blank"
                     style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background-color: #f0f0f0; color: #333; text-decoration: none; border-radius: 9999px; font-weight: 500; transition: background-color 0.3s;">
-                        <span style="margin-right: 0.5rem;">💻</span> <!-- 使用电脑图标 -->
+                        <span style="margin-right: 0.5rem;">💻</span> <!-- Computer icon -->
                         <span>GitHub</span>
                     </a>
 
@@ -155,7 +151,7 @@ def start_app():
                 </div>
 
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                    <!-- 第二行按钮 -->
+                    <!-- Second row of buttons -->
                     <a href="https://huggingface.co/spaces/Wan-AI/Wan2.2-Animate" target="_blank"
                     style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background-color: #f0f0f0; color: #333; text-decoration: none; border-radius: 9999px; font-weight: 500; transition: background-color 0.3s;">
                         <span style="margin-right: 0.5rem;">🤗</span>
@@ -175,54 +171,33 @@ def start_app():
         
         gr.HTML("""
                 <details>
-                    <summary>‼️Usage (使用说明)</summary>
+                    <summary>‼️Usage Instructions</summary>
                     
-                    Wan-Animate supports two mode:
+                    <h4>Supported Modes:</h4>
                     <ul>
-                        <li>Move Mode: animate the  character in input image with movements from the input video</li>
-                        <li>Mix Mode: replace the character in input video with the character in input image</li>
-                    </ul>
-                    
-                    Wan-Animate 支持两种模式:
-                    <ul>
-                        <li>Move模式: 用输入视频中提取的动作，驱动输入图片中的角色</li>
-                        <li>Mix模式: 用输入图片中的角色，替换输入视频中的角色</li>
+                        <li><strong>Move Mode:</strong> Animate the character in the input image with movements from the input video</li>
+                        <li><strong>Mix Mode:</strong> Replace the character in the input video with the character from the input image</li>
                     </ul>
 
-                    Currently, the following restrictions apply to inputs:
-
-                    <ul> <li>Video file size: Less than 200MB</li> 
-                    <li>Video resolution: The shorter side must be greater than 200, and the longer side must be less than 2048</li> 
-                    <li>Video duration: 2s to 30s</li> 
-                    <li>Video aspect ratio: 1:3 to 3:1</li> 
-                    <li>Video formats: mp4, avi, mov</li> 
-                    <li>Image file size: Less than 5MB</li> 
-                    <li>Image resolution: The shorter side must be greater than 200, and the longer side must be less than 4096</li> 
-                    <li>Image formats: jpg, png, jpeg, webp, bmp</li> </ul>
-
+                    <h4>Input Restrictions:</h4>
+                    <ul> 
+                        <li><strong>Video file size:</strong> Less than 200MB</li> 
+                        <li><strong>Video resolution:</strong> Shorter side must be greater than 200px, longer side must be less than 2048px</li> 
+                        <li><strong>Video duration:</strong> 2s to 30s</li> 
+                        <li><strong>Video aspect ratio:</strong> 1:3 to 3:1</li> 
+                        <li><strong>Video formats:</strong> mp4, avi, mov</li> 
+                        <li><strong>Image file size:</strong> Less than 5MB</li> 
+                        <li><strong>Image resolution:</strong> Shorter side must be greater than 200px, longer side must be less than 4096px</li> 
+                        <li><strong>Image formats:</strong> jpg, png, jpeg, webp, bmp</li> 
+                    </ul>
                     
-                    当前，对于输入有以下的限制 
-
+                    <h4>Inference Quality Options:</h4>
                     <ul>
-                        <li>视频文件大小: 小于 200MB</li>
-                        <li>视频分辨率： 最小边大于 200, 最大边小于2048</li>
-                        <li>视频时长: 2s ~ 30s </li> 
-                        <li>视频比例：1:3 ~ 3:1 </li>
-                        <li>视频格式: mp4, avi, mov </li> 
-                        <li>图片文件大小: 小于5MB </li>
-                        <li>图片分辨率：最小边大于200，最大边小于4096 </li>
-                        <li>图片格式: jpg, png, jpeg, webp, bmp </li> 
-                    </ul>     
+                        <li><strong>wan-pro:</strong> 25fps, 720p (higher quality, more resources)</li> 
+                        <li><strong>wan-std:</strong> 15fps, 720p (standard quality, fewer resources)</li>
+                    </ul>
                     
-                    <p> Currently, the inference quality has two variants. You can use our open-source code for more flexible configuration. </p>
-                    
-                    <p>当前，推理质量有两个变种。 您可以使用我们的开源代码，来进行更灵活的设置。</p>
-                    
-                    <ul>
-                        <li> wan-pro: 25fps, 720p </li> 
-                        <li> wan-std: 15fps, 720p  </li>
-                    </ul>     
-                              
+                    <p><strong>Note:</strong> This web interface uses the DashScope cloud API. For local inference with quantized models (GGUF, 4-bit, 8-bit) to reduce resource usage, please refer to the <a href="https://github.com/Wan-Video/Wan2.2" target="_blank">open-source code repository</a> for more flexible configuration options.</p>
 
                 </details>                
                 """)
@@ -230,35 +205,36 @@ def start_app():
         with gr.Row():
             with gr.Column():    
                 ref_img = gr.Image(
-                    label="Reference Image(参考图像)",
+                    label="Reference Image",
                     type="filepath",
                     sources=["upload"],
                 )
                 
                 video = gr.Video(
-                    label="Template Video(模版视频)",
+                    label="Template Video",
                     sources=["upload"],
                 )
                 
                 with gr.Row():
                     model_id = gr.Dropdown(
-                        label="Mode(模式)",
+                        label="Mode",
                         choices=["wan2.2-animate-move", "wan2.2-animate-mix"],
                         value="wan2.2-animate-move",
-                        info=""
+                        info="Choose between Move (animate) or Mix (replace) mode"
                     )
 
                     model = gr.Dropdown(
-                        label="推理质量(Inference Quality)",
+                        label="Inference Quality",
                         choices=["wan-pro", "wan-std"],
                         value="wan-pro",
+                        info="wan-pro: 25fps 720p | wan-std: 15fps 720p (uses fewer resources)"
                     )
 
-                run_button = gr.Button("Generate Video(生成视频)")
+                run_button = gr.Button("Generate Video")
 
             with gr.Column():
-                output_video = gr.Video(label="Output Video(输出视频)")
-                output_status = gr.Textbox(label="Status(状态)")
+                output_video = gr.Video(label="Output Video")
+                output_status = gr.Textbox(label="Status")
         
         run_button.click(
             fn=app.predict,
